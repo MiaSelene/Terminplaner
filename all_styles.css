@@ -220,7 +220,7 @@ button:focus {
 }
 
 #register #registerForm .select-box-wrap {
-  position: relative;
+  position: absolute;
   display: inline-block;
 	height: 45px;
 	width: 135px;
