@@ -38,7 +38,7 @@ function createRandomPatterns() {
 function jobMenu() {
   var jobHeadings = ['Künstler', 'Game Designer', 'Programmierer', 'Sound Designer', 'Story Writer', 'Komponist'];
   var jobDescriptions = [];
-
+  //hier fehlen line breaks in den Stichpunkten jeweils nach dem Doppelpunkt
   var jobDescArtist = 'Als Künstler bist du für das Aussehen des Spiels zuständig. Dein Aufgabenbereich reicht von Conceptart bis Levelaussehen und Charakterdesign. Ohne einen durchgehenden Artstyle kann ein Spieler schnell aus der Erfahrung herausfallen und einige Spiele werden allein für ihre Schönheit gespielt.' +
                       'Als Künstler solltest du einen breiten Wissensstand in deiner Rolle haben und/oder bereit sein für dieses Projekt Neues zu Lernen. Da der Artstyle des Spiels noch nicht feststeht, kannst du dich maßgeblich bei der Entwicklung des Themas beteiligen.' +
                       'Dinge, auf die du Lust haben solltest um bei diesem Projekt mitzuarbeiten: immer mal wieder einen Nachmittag oder eine Freistunde opfern im Team arbeiten Spieleentwicklung Durch dieses Projekt etwas im Künstlerischen Themenbereich dazulernen :D';
