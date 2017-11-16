@@ -48,18 +48,34 @@ section {
   padding: 5% 10%;
   width: 80%;
   height: auto;
+  transition: 1s ease;
+  -webkit-transition: 1s ease;
+  -moz-transition: 1s ease;
+  -ms-transition: 1s ease;
+}
+
+section.zoom {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
 }
 
 #about {
 	background-color: #fff;
 }
 
+#team {
+  background-color: #fff3f3;
+}
+
 #jobs {
-	background-color: #fff3f3;
+	background-color: #ffdada;
 }
 
 #register {
-	background-color: #ffdada;
+	background-color: #ffc0c0;
+  text-align: center;
 }
 
 button {
@@ -99,34 +115,63 @@ button:focus {
   margin: 0 auto;
 }
 
-#jobs .job-info-overlay {
+.text-link {
+  position: relative;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #e74c3c;
+  text-decoration: none;
+  transition: .3s ease;
+  -webkit-transition: .3s ease;
+}
+
+.text-link:before {
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: #e74c3c;
+  transition: .3s ease;
+  -webkit-transition: .3s ease;
+}
+
+.text-link:hover {
+  color: #c0392b;
+}
+
+.text-link:hover:before {
+  width: 100%;
+}
+
+.job-info-overlay {
   position: fixed;
   visibility: hidden;
   opacity: 0;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 2;
+  z-index: 3;
   background-color: #fff3f3;
   transition: 1s ease;
   -webkit-transition: 1s ease;
 }
 
-#jobs .job-info-overlay.show {
+.job-info-overlay.show {
   visibility: visible;
   opacity: 1;
 }
 
-#jobs .job-info-overlay .centered {
+.job-info-overlay .centered {
   transition: 1s ease;
   -webkit-transition: 1s ease;
 }
 
-#jobs .job-info-overlay.show .centered {
+.job-info-overlay.show .centered {
 	top: 50%;
 }
 
-#jobs .job-info-overlay .centered {
+.job-info-overlay .centered {
   position: absolute;
   top: 60%;
   left: 50%;
@@ -134,7 +179,7 @@ button:focus {
   -webkit-transform: translate(-50%, -50%);
 }
 
-#jobs .job-info-overlay i {
+.job-info-overlay i {
   color: #333;
   font-size: 40px;
   padding: 40px 0 0 40px;
@@ -156,7 +201,6 @@ button:focus {
   margin: 20px;
   transition: .3s ease;
   -webkit-transition: .3s ease;
-  background-color: #e67e22;
   overflow: hidden;
   border: 0;
   cursor: pointer;
@@ -183,14 +227,80 @@ button:focus {
 
 #jobs .menu-wrap ul li .background {
 	position: absolute;
-	left: 0;
-	height: 282.8427125px;
-	width: 282.8427125px;
-	background: -webkit-linear-gradient(left, #e74c3c 50%, #c0392b 50%);
+  left: 0;
+  height: 280px;
+	width: 280px;
+  transform: rotate(45deg) translateX(0);
+  -webkit-transform: rotate(45deg) translateX(0);
+  transition: .5s ease;
+  -webkit-transition: .5s ease;
+}
+
+#jobs .menu-wrap ul li .background .cross-browser-color {
+  height: 50%;
+  width: 100%;
+}
+
+#jobs .menu-wrap ul li .background.reverse {
+  transform: rotate(-45deg) translateX(0);
+  -webkit-transform: rotate(-45deg) translateX(0);
+}
+
+#jobs .menu-wrap ul li:hover .background {
+  transform: rotate(45deg) translateX(20px);
+  -webkit-transform: rotate(45deg) translateX(20px);
+}
+
+#jobs .menu-wrap ul li:hover .background.reverse {
+  transform: rotate(-45deg) translateX(20px);
+  -webkit-transform: rotate(-45deg) translateX(20px);
 }
 
 #register {
 	text-align: center;
+}
+
+#register .content-wrap {
+  padding-top: 5%;
+}
+
+#register .job-warning {
+  position: relative;
+  display: inline-block;
+  opacity: 0;
+  height: 0;
+  margin-bottom: 5%;
+  padding: 0px;
+  background-color: #ffdada;
+  border: 2px solid #e74c3c;
+  transform-origin: top center;
+  transform: rotateX(-90deg);
+  -webkit-transform: rotateX(-90deg);
+  transition: .5s ease;
+  -webkit-transition: .5s ease;
+}
+
+#register .job-warning.show {
+  opacity: 1;
+  height: auto;
+  padding: 20px;
+  transform: rotateX(0deg);
+  -webkit-transform: rotateX(0deg);
+}
+
+#register .job-warning i, #register .job-warning .text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#register .job-warning i {
+  font-size: 30px;
+  color: #e74c3c;
+  margin: 0 20px 0 4px;
+}
+
+#register .job-warning .text {
+  text-align: left;
 }
 
 #register #registerForm {
@@ -201,13 +311,15 @@ button:focus {
 #register #registerForm > * {
 	margin: 0;
 	padding: 0;
+  vertical-align: top;
+  text-align: left;
 }
 
 #register #registerForm input[type='text'] {
 	height: 45px;
-	width: 270px;
+	width: calc(60% - 16px);
 	margin: 0 -2px;
-	padding-left: 15px;
+	padding: 0 0 0 15px;
 	font-size: 15px;
 	font-family: 'Source Sans Pro', sans-serif;
 	border: 0;
@@ -215,24 +327,42 @@ button:focus {
 	color: #333;
 }
 
+#register #registerForm button {
+  width: 20%;
+}
+
 #register #registerForm *:focus {
 	outline: 0;
 }
 
-#register #registerForm .select-box-wrap {
-  position: absolute;
+#register #registerForm .job-wrap {
   display: inline-block;
-	height: 45px;
-	width: 135px;
-  text-align: center;
-	vertical-align: top;
-	margin-right: -2px;
-	background-color: #e74c3c;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
 }
 
-#register #registerForm .select-box-wrap #currentlySelected {
+#register #registerForm .select-button-wrap {
+  position: relative;
+  padding: 0;
+  margin-right: -2px;
+  height: 45px;
+  text-transform: none;
+	background-color: #e74c3c;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#register #registerForm .select-button-wrap label {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: 0;
+  border: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+
+#register #registerForm .select-button-wrap #currentlySelected {
   display: inline-block;
   margin: 0;
   line-height: 45px;
@@ -241,7 +371,7 @@ button:focus {
   font-size: 15px;
 }
 
-#register #registerForm .select-box-wrap i {
+#register #registerForm .select-button-wrap i {
   display: inline-block;
   font-size: 15px;
   color: #fff3f3;
@@ -251,27 +381,28 @@ button:focus {
   -webkit-transition: .3s ease;
 }
 
-#register #registerForm .select-box-wrap.show i {
+#register #registerForm .select-button-wrap:focus i {
   transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
 }
 
-#register #registerForm .select-box-wrap .option-wrap {
+#register #registerForm .option-wrap {
   position: relative;
+  visibility: hidden;
   opacity: 0;
-  left: 50%;
-  top: 55px;
-  transform: translateX(-50%);
+  z-index: 2;
+  margin: 0;
+  padding: 0;
   border-radius: 4px;
   background-color: #fff3f3;
   transition: .5s ease;
   -webkit-transition: .5s ease;
 }
 
-#register #registerForm .select-box-wrap .option-wrap:before {
+#register #registerForm .option-wrap:before {
   position: absolute;
   content: '';
-  left: 50%;
+  left: calc(10% - 5px);
   top: -20px;
   height: 0;
   width: 0;
@@ -279,44 +410,66 @@ button:focus {
   border-bottom: 10px solid #fff3f3;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
 }
 
-#register #registerForm .select-box-wrap .option-wrap p {
+#register #registerForm .option-wrap li {
+  display: inline-block;
+  padding: 15px 20px;
+}
+
+#register #registerForm .option-wrap li:hover {
+  background-color: rgba(66, 66, 66, .1);
+  cursor: pointer;
+}
+
+#register #registerForm .option-wrap li.selected:hover {
+  background: 0;
+  cursor: auto;
+}
+
+#register #registerForm .option-wrap li p {
   position: relative;
   margin: 0;
-  padding: 20px;
   top: -20px;
   font-size: 15px;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
   transition: .5s ease;
   -webkit-transition: .5s ease;
 }
 
-#register #registerForm .select-box-wrap .option-wrap p:not(.selected) {
-  cursor: pointer;
-}
-
-#register #registerForm .select-box-wrap .option-wrap p:not(.selected):hover {
-  background-color: rgba(66, 66, 66, .1);
-}
-
-#register #registerForm .select-box-wrap .option-wrap p.selected {
+#register #registerForm .option-wrap li.selected p {
   color: #e74c3c;
 }
 
-#register #registerForm .select-box-wrap.show .option-wrap p {
-  top: 0;
+#register #registerForm input[type=checkbox] {
+
 }
 
-#register #registerForm .select-box-wrap.show .option-wrap {
+#register #registerForm input[type=checkbox]:checked + .option-wrap {
+  visibility: visible;
   opacity: 1;
 }
 
-#register #registerForm button {
+#register #registerForm input[type=checkbox]:checked + .option-wrap p {
+  top: 0;
+}
+
+#register #registerForm #send-info {
 	height: 45px;
-	width: 135px;
   margin-left: -2px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+#register #registerForm #send-info.disabled {
+  background-color: rgba(231, 76, 60, .5);
+  cursor: default;
+}
+
+#register #registerForm #send-info.disabled:hover {
+  background-color: rgba(231, 76, 60, .5);
 }
