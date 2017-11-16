@@ -17,27 +17,30 @@
         <div class="content-wrap">
           <div class="text">
             <p>Wir sind ein kleiner Spieleentwicklungs-Club vom John-Lennon-Gymnasium in Berlin.<br/>Die Anmeldung ist vorerst begrenzt auf Schüler des JLG!<br/><br/>Wenn du nicht von da kommst, wie hast du dann diese Seite gefunden? :D</p>
-            <button id="leave-site">Seite verlassen</button>
           </div>
         </div>
       </section>
 
-    <section id="jobs">
+      <section id="team">
+        <span class="for-center"><h1>Team</h1></span>
+        <div class="content-wrap">
+          <table id="demo"></table>
+        </div>
+      </section>
+
       <div class="job-info-overlay" id="fullscreen-div">
         <i class="fa fa-times" aria-hidden="true" id="close-menu"></i>
         <div class="centered">
           <h1 id="job-heading"></h1>
           <p id="job-description"></p>
           <div class="person-job-wrap">
-            <ul>
-              <!-- Name mit JavaScript über Server von XML-Datei ziehen
-                   Bsp.: <li>Name</li>
-              -->
-            </ul>
+            <ul></ul>
           </div>
         </div>
       </div>
-        <span class="for-center"><h1 class="section-heading">Infos</h1></span>
+
+    <section id="jobs">
+        <span class="for-center"><h1>Infos</h1></span>
           <div class="content-wrap">
             <div class="text">
               <p>Bitte bedenke, dass wir unsere eigenen Definitionen der genannten Begriffe verwenden. Lese also zuerst die Infos durch, um herauszufinden ob du dich wirklich für das anmeldest, was du denkst.</p>
@@ -45,27 +48,45 @@
             <div class="menu-wrap">
                 <ul>
                   <li class="card" id="panel-1">
-				            <span class="background"></span>
+				            <span class="background">
+                      <div class="cross-browser-color c1"></div>
+                      <div class="cross-browser-color c2"></div>
+                    </span>
 				            <span class="foreground"><i class="fa fa-paint-brush" aria-hidden="true"></i>Künstler</span>
                 </li>
                 <li class="card" id="panel-2">
-				          <span class="background"></span>
+                  <span class="background">
+                    <div class="cross-browser-color c1"></div>
+                    <div class="cross-browser-color c2"></div>
+                  </span>
 				          <span class="foreground"><i class="fa fa-desktop" aria-hidden="true"></i>Game Designer</span>
                 </li>
                 <li class="card" id="panel-3">
-				          <span class="background"></span>
+                  <span class="background">
+                    <div class="cross-browser-color c1"></div>
+                    <div class="cross-browser-color c2"></div>
+                  </span>
 				          <span class="foreground"class="foreground"><i class="fa fa-code" aria-hidden="true"></i>Programmierer</span>
                 </li>
                 <li class="card" id="panel-4">
-                  <span class="background"></span>
+                  <span class="background">
+                    <div class="cross-browser-color c1"></div>
+                    <div class="cross-browser-color c2"></div>
+                  </span>
 				          <span class="foreground"><i class="fa fa-volume-up" aria-hidden="true"></i>Sound Designer</span>
                 </li>
                 <li class="card" id="panel-5">
-                  <span class="background"></span>
+                  <span class="background">
+                    <div class="cross-browser-color c1"></div>
+                    <div class="cross-browser-color c2"></div>
+                  </span>
 				          <span class="foreground"><i class="fa fa-align-left" aria-hidden="true"></i>Story Writer</span>
                 </li>
                 <li class="card" id="panel-6">
-                  <span class="background"></span>
+                  <span class="background">
+                    <div class="cross-browser-color c1"></div>
+                    <div class="cross-browser-color c2"></div>
+                  </span>
 				          <span class="foreground"><i class="fa fa-music" aria-hidden="true"></i>Komponist</span>
                 </li>
               </ul>
@@ -76,23 +97,31 @@
       <section id="register">
         <span class="for-center"><h1>Anmelden</h1></span>
         <div class="content-wrap">
+          <div class="job-warning">
+            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+            <div class="text"><p id="warning-msg">Du hast dir noch nicht die Infos für <span class="job-name"></span> angesehen!<br/>Bitte tue es jetzt, damit du weißt, worauf du dich einlässt :D</p></div>
+          </div>
           <form id="registerForm">
-	  	<div class="select-box-wrap" id="job-wrapper">
-        	  <p id="currentlySelected">Künstler</p>
-        	  <i class="fa fa-angle-down" aria-hidden="true"></i>
-        	  <div class="option-wrap">
-            	    <p id="op-1" class="selected">Künstler</p>
-	    	    <p id="op-2">Game Designer</p>
-	    	    <p id="op-3">Programmierer</p>
-	    	    <p id="op-4">Sound Designer</p>
-	    	    <p id="op-5">Story Writer</p>
-	    	    <p id="op-6">Komponist</p>
-        	 </div>
-	       </div>
-               <input type="text" placeholder="Dein Name" id="myInput">
-	       <button>Anmelden</button>
+            <legend class="inputs">
+              <button class="select-button-wrap" id="job-wrapper">
+                <label for="toggle-menu"></label>
+                <p id="currentlySelected">Künstler</p>
+                <i class="fa fa-angle-down" aria-hidden="true"></i>
+              </button>
+              <input type="text" placeholder="Dein Name" id="myInput"></input>
+			        <button id="send-info">Anmelden</button>
+            </legend>
+            <input type="checkbox" id="toggle-menu"></input>
+            <ul class="option-wrap">
+              <li id="op-1" class="selected"><p>Künstler</p></li>
+              <li id="op-2"><p>Game Designer</p></li>
+              <li id="op-3"><p>Programmierer</p></li>
+              <li id="op-4"><p>Sound Designer</p></li>
+              <li id="op-5"><p>Story Writer</p></li>
+              <li id="op-6"><p>Komponist</p></li>
+            </ul>
           </form>
-	  <p class="more-info">Bitte schreibe zusätzlich eine Nachricht auf WhatsApp an: 157 78910439 oder an SpieleEntwicklung@ravid.de mit deinem Namen damit wir eine Möglichkeit haben dich zu kontaktieren.</p>
+          <div class="text"><p class="more-info">Bitte schreibe zusätzlich eine Nachricht auf WhatsApp an:<br/>157 78910439<br/>oder an <a href="mailto:SpieleEntwicklung@ravid.de" class="text-link">SpieleEntwicklung@ravid.de</a> mit deinem Namen, damit wir eine Möglichkeit haben dich zu kontaktieren.</p></div>
         </div>
       </section>
     </div>
